@@ -29,7 +29,7 @@ export default function ResultPage({
   useEffect(() => {
     // MBTI 계산 로직
     const calculateMBTI = () => {
-      if (userAnswers.length !== 4) return "";
+      if (userAnswers.length === 0) return "";
 
       const counts = {
         E: 0,

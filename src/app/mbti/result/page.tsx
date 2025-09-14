@@ -30,16 +30,9 @@ export default function MBTIResultPage() {
     }
 
     // 테스트 데이터 설정
-    const fixedQuestions = [
-      questionDatabase.find((q) => q.id === "q1")!,
-      questionDatabase.find((q) => q.id === "q2")!,
-      questionDatabase.find((q) => q.id === "q3")!,
-      questionDatabase.find((q) => q.id === "q4")!,
-    ];
-
     const data = {
       title: "MBTI 성격 유형 검사",
-      questions: fixedQuestions,
+      questions: questionDatabase,
       results: {
         ESTJ: "계획적인 리더 ESTJ",
         ESTP: "즉흥적인 모험가 ESTP",
