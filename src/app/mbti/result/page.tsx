@@ -70,6 +70,10 @@ function MBTIResultContent() {
     setIsLoading(false);
   }, [searchParams, router]);
 
+  const handleReset = () => {
+    router.push("/mbti");
+  };
+
   if (isLoading || !testData) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-purple-900 flex items-center justify-center">
@@ -86,7 +90,11 @@ function MBTIResultContent() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-purple-900">
       <div className="container mx-auto px-4 py-8">
-        <ResultPage testData={testData} userAnswers={userAnswers} />
+        <ResultPage
+          testData={testData}
+          userAnswers={userAnswers}
+          onReset={handleReset}
+        />
       </div>
     </div>
   );

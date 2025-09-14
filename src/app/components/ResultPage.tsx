@@ -15,9 +15,14 @@ interface ResultPageProps {
     results: Record<string, string>;
   };
   userAnswers: string[];
+  onReset: () => void;
 }
 
-export default function ResultPage({ testData, userAnswers }: ResultPageProps) {
+export default function ResultPage({
+  testData,
+  userAnswers,
+  onReset,
+}: ResultPageProps) {
   const [mbtiType, setMbtiType] = useState<string>("");
   const [isCalculating, setIsCalculating] = useState(true);
 
@@ -146,7 +151,7 @@ export default function ResultPage({ testData, userAnswers }: ResultPageProps) {
         {/* 액션 버튼들 */}
         <div className="flex justify-center">
           <button
-            onClick={() => window.location.reload()}
+            onClick={onReset}
             className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             다시 테스트하기
