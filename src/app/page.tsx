@@ -1,103 +1,118 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import TestPage from "./components/TestPage";
+import ResultPage from "./components/ResultPage";
+import { questionDatabase } from "./data/questions";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [currentStep, setCurrentStep] = useState<"intro" | "test" | "final">(
+    "intro"
+  );
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+  // 고정된 질문 세트 (E/I, S/N, T/F, J/P 각각 1개씩)
+  const fixedQuestions = [
+    questionDatabase.find((q) => q.id === "ei_1")!,
+    questionDatabase.find((q) => q.id === "sn_1")!,
+    questionDatabase.find((q) => q.id === "tf_1")!,
+    questionDatabase.find((q) => q.id === "jp_1")!,
+  ];
+
+  const testData = {
+    title: "나만의 MBTI 테스트",
+    questions: fixedQuestions,
+    results: {
+      ESTJ: "계획적인 리더 ESTJ",
+      ESTP: "즉흥적인 모험가 ESTP",
+      ESFJ: "따뜻한 돌봄이 ESFJ",
+      ESFP: "자유로운 연예인 ESFP",
+      ENTJ: "카리스마 있는 지휘관 ENTJ",
+      ENTP: "혁신적인 발명가 ENTP",
+      ENFJ: "영감을 주는 선생님 ENFJ",
+      ENFP: "열정적인 활동가 ENFP",
+      ISTJ: "실용적인 관리자 ISTJ",
+      ISTP: "만능 재주꾼 ISTP",
+      ISFJ: "용감한 수호자 ISFJ",
+      ISFP: "호기심 많은 예술가 ISFP",
+      INTJ: "용의주도한 전략가 INTJ",
+      INTP: "논리적인 사색가 INTP",
+      INFJ: "선의의 옹호자 INFJ",
+      INFP: "열정적인 중재자 INFP",
+    },
+  };
+
+  const handleStartTest = () => {
+    setCurrentStep("test");
+  };
+
+  const handleTestComplete = (answers: string[]) => {
+    setUserAnswers(answers);
+    setCurrentStep("final");
+  };
+
+  const resetTest = () => {
+    setCurrentStep("intro");
+    setUserAnswers([]);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-purple-900">
+      <div className="container mx-auto px-4 py-8">
+        {currentStep === "intro" && (
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20">
+              <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+                🧠 MBTI 성격 유형 검사
+              </h1>
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                간단한 질문에 답하고 당신의 성격 유형을 알아보세요!
+              </p>
+              <div className="space-y-4 text-left bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6 mb-8">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+                  ✨ 테스트 특징
+                </h3>
+                <div className="space-y-2 text-gray-600 dark:text-gray-300">
+                  <p>
+                    • <strong>4개의 간단한 질문</strong>으로 정확한 분석
+                  </p>
+                  <p>
+                    • <strong>16가지 성격 유형</strong> 중 당신의 유형 발견
+                  </p>
+                  <p>
+                    • <strong>즉시 결과 확인</strong> 가능
+                  </p>
+                  <p>
+                    • <strong>친구들과 공유</strong> 가능
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={handleStartTest}
+                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                테스트 시작하기 🚀
+              </button>
+            </div>
+          </div>
+        )}
+
+        {currentStep === "test" && (
+          <TestPage
+            testData={testData}
+            onComplete={handleTestComplete}
+            onReset={resetTest}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+        )}
+
+        {currentStep === "final" && (
+          <ResultPage
+            testData={testData}
+            userAnswers={userAnswers}
+            onReset={resetTest}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        )}
+      </div>
     </div>
   );
 }
