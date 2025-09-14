@@ -10,17 +10,12 @@ export default function MBTIPage() {
   const [currentStep, setCurrentStep] = useState<"intro" | "test">("intro");
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
-  // 고정된 질문 세트 (각 질문에서 E/I, S/N, T/F, J/P 모든 요소를 포함)
-  const fixedQuestions = [
-    questionDatabase.find((q) => q.id === "q1")!,
-    questionDatabase.find((q) => q.id === "q2")!,
-    questionDatabase.find((q) => q.id === "q3")!,
-    questionDatabase.find((q) => q.id === "q4")!,
-  ];
+  // 전체 질문 데이터베이스 사용 (각 질문에서 E/I, S/N, T/F, J/P 모든 요소를 포함)
+  const allQuestions = questionDatabase;
 
   const testData = {
     title: "MBTI 성격 유형 검사",
-    questions: fixedQuestions,
+    questions: allQuestions,
     results: {
       ESTJ: "계획적인 리더 ESTJ",
       ESTP: "즉흥적인 모험가 ESTP",
@@ -66,8 +61,8 @@ export default function MBTIPage() {
                 🧠 MBTI 성격 유형 검사
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                현실적인 상황을 바탕으로 한 4개의 질문으로 당신의 성격 유형을
-                알아보세요!
+                현실적인 상황을 바탕으로 한 {questionDatabase.length}개의
+                질문으로 당신의 성격 유형을 알아보세요!
               </p>
               <div className="space-y-4 text-left bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6 mb-8">
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
@@ -78,7 +73,8 @@ export default function MBTIPage() {
                     • <strong>현실적인 상황</strong> 기반의 질문들
                   </p>
                   <p>
-                    • <strong>4개의 간단한 질문</strong>으로 정확한 분석
+                    • <strong>{questionDatabase.length}개의 간단한 질문</strong>
+                    으로 정확한 분석
                   </p>
                   <p>
                     • <strong>16가지 성격 유형</strong> 중 당신의 유형 발견
