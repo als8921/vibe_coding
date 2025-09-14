@@ -55,15 +55,6 @@ export default function MBTIPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-purple-900">
       <div className="container mx-auto px-4 py-8">
-        {/* 홈으로 돌아가기 버튼 */}
-        <div className="mb-6">
-          <button
-            onClick={() => router.push("/")}
-            className="inline-flex items-center px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors duration-200"
-          >
-            ← 홈으로 돌아가기
-          </button>
-        </div>
         {currentStep === "intro" && (
           <div className="max-w-2xl mx-auto text-center">
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20">
