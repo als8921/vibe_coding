@@ -15,14 +15,9 @@ interface ResultPageProps {
     results: Record<string, string>;
   };
   userAnswers: string[];
-  onReset: () => void;
 }
 
-export default function ResultPage({
-  testData,
-  userAnswers,
-  onReset,
-}: ResultPageProps) {
+export default function ResultPage({ testData, userAnswers }: ResultPageProps) {
   const [mbtiType, setMbtiType] = useState<string>("");
   const [isCalculating, setIsCalculating] = useState(true);
 

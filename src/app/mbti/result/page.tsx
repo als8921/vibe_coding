@@ -8,7 +8,20 @@ import { questionDatabase } from "../../data/questions";
 export default function MBTIResultPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [testData, setTestData] = useState<any>(null);
+  const [testData, setTestData] = useState<{
+    title: string;
+    questions: Array<{
+      id: string;
+      question: string;
+      options: {
+        text: string;
+        types: ("E" | "I" | "S" | "N" | "T" | "F" | "J" | "P")[];
+      }[];
+      category: string;
+      description: string;
+    }>;
+    results: Record<string, string>;
+  } | null>(null);
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -57,10 +70,6 @@ export default function MBTIResultPage() {
     setIsLoading(false);
   }, [searchParams, router]);
 
-  const handleReset = () => {
-    router.push("/mbti");
-  };
-
   if (isLoading || !testData) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-purple-900 flex items-center justify-center">
@@ -77,11 +86,7 @@ export default function MBTIResultPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-purple-900">
       <div className="container mx-auto px-4 py-8">
-        <ResultPage
-          testData={testData}
-          userAnswers={userAnswers}
-          onReset={handleReset}
-        />
+        <ResultPage testData={testData} userAnswers={userAnswers} />
       </div>
     </div>
   );

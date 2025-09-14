@@ -8,7 +8,7 @@ import { questionDatabase } from "../data/questions";
 export default function MBTIPage() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState<"intro" | "test">("intro");
-  const [userAnswers, setUserAnswers] = useState<string[]>([]);
+  const [, setUserAnswers] = useState<string[]>([]);
 
   // 전체 질문 데이터베이스 사용 (각 질문에서 E/I, S/N, T/F, J/P 모든 요소를 포함)
   const allQuestions = questionDatabase;
