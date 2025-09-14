@@ -77,12 +77,12 @@ export default function TestPage({
           </div>
 
           {/* 선택지 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-col space-y-4">
             {currentQ?.options.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleAnswerSelect(option.types)}
-                className="p-6 text-left bg-white dark:bg-gray-700 rounded-2xl border-2 border-gray-200 dark:border-gray-600 hover:border-purple-400 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
+                className="w-full p-6 text-left bg-white dark:bg-gray-700 rounded-2xl border-2 border-gray-200 dark:border-gray-600 hover:border-purple-400 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
               >
                 <div className="flex items-center">
                   <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
