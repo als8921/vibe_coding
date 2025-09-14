@@ -1,22 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-interface ResultPageProps {
-  testData: {
-    title: string;
-    questions: Array<{
-      question: string;
-      options: {
-        text: string;
-        types: ("E" | "I" | "S" | "N" | "T" | "F" | "J" | "P")[];
-      }[];
-    }>;
-    results: Record<string, string>;
-  };
-  userAnswers: string[];
-  onReset: () => void;
-}
+import { ResultPageProps } from "../types";
 
 export default function ResultPage({
   testData,
