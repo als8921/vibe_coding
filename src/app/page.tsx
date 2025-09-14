@@ -11,12 +11,12 @@ export default function Home() {
   );
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
-  // 고정된 질문 세트 (E/I, S/N, T/F, J/P 각각 1개씩)
+  // 고정된 질문 세트 (각 질문에서 E/I, S/N, T/F, J/P 모든 요소를 포함)
   const fixedQuestions = [
-    questionDatabase.find((q) => q.id === "ei_1")!,
-    questionDatabase.find((q) => q.id === "sn_1")!,
-    questionDatabase.find((q) => q.id === "tf_1")!,
-    questionDatabase.find((q) => q.id === "jp_1")!,
+    questionDatabase.find((q) => q.id === "q1")!,
+    questionDatabase.find((q) => q.id === "q2")!,
+    questionDatabase.find((q) => q.id === "q3")!,
+    questionDatabase.find((q) => q.id === "q4")!,
   ];
 
   const testData = {

@@ -9,7 +9,7 @@ interface TestPageProps {
       question: string;
       options: {
         text: string;
-        type: "E" | "I" | "S" | "N" | "T" | "F" | "J" | "P";
+        types: ("E" | "I" | "S" | "N" | "T" | "F" | "J" | "P")[];
       }[];
     }>;
     results: Record<string, string>;
@@ -26,9 +26,9 @@ export default function TestPage({
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
 
-  const handleAnswerSelect = (answer: string) => {
+  const handleAnswerSelect = (answer: string[]) => {
     const newAnswers = [...answers];
-    newAnswers[currentQuestion] = answer;
+    newAnswers[currentQuestion] = answer.join(",");
     setAnswers(newAnswers);
 
     if (currentQuestion < testData.questions.length - 1) {
@@ -81,7 +81,7 @@ export default function TestPage({
             {currentQ?.options.map((option, index) => (
               <button
                 key={index}
-                onClick={() => handleAnswerSelect(option.type)}
+                onClick={() => handleAnswerSelect(option.types)}
                 className="p-6 text-left bg-white dark:bg-gray-700 rounded-2xl border-2 border-gray-200 dark:border-gray-600 hover:border-purple-400 dark:hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
               >
                 <div className="flex items-center">

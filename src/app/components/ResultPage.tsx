@@ -9,7 +9,7 @@ interface ResultPageProps {
       question: string;
       options: {
         text: string;
-        type: "E" | "I" | "S" | "N" | "T" | "F" | "J" | "P";
+        types: ("E" | "I" | "S" | "N" | "T" | "F" | "J" | "P")[];
       }[];
     }>;
     results: Record<string, string>;
@@ -42,11 +42,14 @@ export default function ResultPage({
         P: 0,
       };
 
-      // 각 답변에 따라 카운트
+      // 각 답변에 따라 카운트 (여러 타입을 가질 수 있음)
       userAnswers.forEach((answer) => {
-        if (answer in counts) {
-          counts[answer as keyof typeof counts]++;
-        }
+        const types = answer.split(",");
+        types.forEach((type) => {
+          if (type in counts) {
+            counts[type as keyof typeof counts]++;
+          }
+        });
       });
 
       // MBTI 유형 결정
@@ -146,18 +149,12 @@ export default function ResultPage({
         </div>
 
         {/* 액션 버튼들 */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={onReset}
-            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-          >
-            새로운 테스트 만들기 🚀
-          </button>
+        <div className="flex justify-center">
           <button
             onClick={() => window.location.reload()}
-            className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300"
+            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            다시 테스트하기 🔄
+            다시 테스트하기
           </button>
         </div>
 
