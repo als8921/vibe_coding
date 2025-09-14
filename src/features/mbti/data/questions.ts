@@ -1,13 +1,4 @@
-export interface Question {
-  id: string;
-  question: string;
-  options: {
-    text: string;
-    types: ("E" | "I" | "S" | "N" | "T" | "F" | "J" | "P")[];
-  }[];
-  category: string;
-  description: string;
-}
+import { Question } from "../types";
 
 export const questionDatabase: Question[] = [
   // 통합 질문들 - 각 질문에서 E/I, S/N, T/F, J/P 모든 요소를 포함

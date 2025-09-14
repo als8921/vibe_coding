@@ -1,22 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-interface TestPageProps {
-  testData: {
-    title: string;
-    questions: Array<{
-      question: string;
-      options: {
-        text: string;
-        types: ("E" | "I" | "S" | "N" | "T" | "F" | "J" | "P")[];
-      }[];
-    }>;
-    results: Record<string, string>;
-  };
-  onComplete: (answers: string[]) => void;
-  onReset: () => void;
-}
+import { TestPageProps } from "../types";
 
 export default function TestPage({
   testData,
