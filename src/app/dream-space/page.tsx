@@ -9,6 +9,7 @@ import {
   ThemeSelector,
   ParticleBackground,
   DreamSpaceFooter,
+  Theme,
 } from "@/features/dream-space";
 import { THEMES } from "@/features/dream-space/data/themes";
 
@@ -18,18 +19,6 @@ export interface Idea {
   theme: string;
   createdAt: Date;
   mood: string;
-}
-
-export interface Theme {
-  name: string;
-  colors: {
-    primary: string;
-    secondary: string;
-    background: string;
-    text: string;
-  };
-  particles: string[];
-  description: string;
 }
 
 export default function DreamSpacePage() {
@@ -44,10 +33,12 @@ export default function DreamSpacePage() {
     // 로컬스토리지에서 아이디어 불러오기
     const savedIdeas = localStorage.getItem("dream-space-ideas");
     if (savedIdeas) {
-      const parsedIdeas = JSON.parse(savedIdeas).map((idea: any) => ({
-        ...idea,
-        createdAt: new Date(idea.createdAt),
-      }));
+      const parsedIdeas = JSON.parse(savedIdeas).map(
+        (idea: Omit<Idea, "createdAt"> & { createdAt: string }) => ({
+          ...idea,
+          createdAt: new Date(idea.createdAt),
+        })
+      );
       setIdeas(parsedIdeas);
     }
 
