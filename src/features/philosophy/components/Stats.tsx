@@ -9,10 +9,10 @@ interface StatsProps {
 
 const Stats: React.FC<StatsProps> = ({ clickCount, className = "" }) => {
   return (
-    <div className={`philosophy-stats ${className}`}>
-      <p className="philosophy-stats-text">
-        오늘 <span id="philosophy-clickCount">{clickCount}</span>번의 위로를
-        받았어요!
+    <div className={`text-center mb-8 ${className}`}>
+      <p className="text-lg text-gray-700 opacity-70">
+        오늘 <span className="font-semibold text-pink-500">{clickCount}</span>
+        번의 위로를 받았어요!
       </p>
     </div>
   );

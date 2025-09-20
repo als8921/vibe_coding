@@ -1,14 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import "../../styles/philosophy.css";
 import {
   Header,
   QuoteDisplay,
   MainButton,
   Stats,
   Footer,
-  IntroScreen,
   Quote,
   getRandomQuote,
 } from "@/features/philosophy";
@@ -78,14 +76,45 @@ export default function PhilosophyPage() {
 
   // 인트로 화면 표시
   if (showIntro) {
-    return <IntroScreen onStart={handleStart} />;
+    return (
+      <div className="fixed inset-0 bg-gradient-to-br from-pink-50 to-cyan-50 flex items-center justify-center z-50">
+        <div className="text-center p-8 max-w-md w-full">
+          <div className="mb-8">
+            <img
+              src="/philosophy-icon.png"
+              alt="개똥철학 로고"
+              className="w-32 h-32 mx-auto rounded-2xl shadow-xl"
+            />
+          </div>
+          <div className="mb-12">
+            <p className="text-xl text-gray-700 opacity-80">
+              외로운 당신을 위한 특별한 위로
+            </p>
+          </div>
+          <div className="mb-10">
+            <button
+              onClick={handleStart}
+              className="bg-gradient-to-r from-pink-400 to-cyan-400 text-white px-8 py-4 rounded-2xl text-xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-4 mx-auto"
+            >
+              <span>시작하기</span>
+              <span>→</span>
+            </button>
+          </div>
+          <div>
+            <p className="text-lg text-gray-700 opacity-70">
+              버튼을 눌러서 위로의 명언을 받아보세요
+            </p>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="philosophy-container">
+    <div className="w-screen h-screen bg-gradient-to-br from-pink-50 to-cyan-50 flex flex-col items-center justify-center relative overflow-hidden">
       <Header />
 
-      <main className="philosophy-main">
+      <main className="flex-1 flex flex-col items-center justify-center px-4 py-8">
         <QuoteDisplay quote={currentQuote} isAnimating={isAnimating} />
 
         <MainButton onClick={handleButtonClick} isLoading={isLoading} />
@@ -96,13 +125,15 @@ export default function PhilosophyPage() {
       <Footer />
 
       {/* Background Elements */}
-      <div className="philosophy-background-elements">
-        <div className="pixel-cloud cloud-1">☁️</div>
-        <div className="pixel-cloud cloud-2">☁️</div>
-        <div className="pixel-cloud cloud-3">☁️</div>
-        <div className="pixel-star star-1">⭐</div>
-        <div className="pixel-star star-2">⭐</div>
-        <div className="pixel-star star-3">⭐</div>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-10 left-10 text-2xl opacity-60">☁️</div>
+        <div className="absolute top-20 right-15 text-2xl opacity-60">☁️</div>
+        <div className="absolute bottom-30 left-20 text-2xl opacity-60">☁️</div>
+        <div className="absolute top-15 right-30 text-2xl opacity-60">⭐</div>
+        <div className="absolute bottom-20 right-10 text-2xl opacity-60">
+          ⭐
+        </div>
+        <div className="absolute top-60 left-5 text-2xl opacity-60">⭐</div>
       </div>
     </div>
   );

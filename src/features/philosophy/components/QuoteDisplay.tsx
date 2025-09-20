@@ -42,13 +42,17 @@ const QuoteDisplay: React.FC<QuoteDisplayProps> = ({
   }, [currentIndex, isTyping, quote.text]);
 
   return (
-    <div className={`philosophy-quote-container ${className}`}>
-      <div className="philosophy-quote-box">
-        <p className="philosophy-quote-text">
+    <div className={`w-full max-w-2xl mb-10 ${className}`}>
+      <div className="bg-white border-4 border-pink-400 rounded-2xl p-8 shadow-lg relative">
+        <p className="text-xl md:text-2xl text-center text-gray-800 font-semibold leading-relaxed min-h-24 flex items-center justify-center">
           {isTyping ? displayText : quote.text}
-          {isTyping && <span className="philosophy-cursor">|</span>}
+          {isTyping && (
+            <span className="text-pink-400 font-bold animate-pulse">|</span>
+          )}
         </p>
-        <p className="philosophy-quote-author">{quote.author}</p>
+        <p className="text-lg text-pink-400 text-center mt-6 opacity-70">
+          {quote.author}
+        </p>
       </div>
     </div>
   );
