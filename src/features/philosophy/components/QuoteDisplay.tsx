@@ -44,13 +44,11 @@ const QuoteDisplay: React.FC<QuoteDisplayProps> = ({
   return (
     <div className={`w-full max-w-2xl mb-10 ${className}`}>
       <div className="bg-white border-4 border-pink-400 rounded-2xl p-8 shadow-lg relative">
-        <p className="text-xl md:text-2xl text-center text-gray-800 font-semibold leading-relaxed min-h-24 flex items-center justify-center">
+        <p className="text-pixel-quote-responsive text-center text-gray-800 min-h-32 flex items-center justify-center px-4">
           {isTyping ? displayText : quote.text}
-          {isTyping && (
-            <span className="text-pink-400 font-bold animate-pulse">|</span>
-          )}
+          {isTyping && <span className="text-pink-400 animate-pulse">|</span>}
         </p>
-        <p className="text-lg text-pink-400 text-center mt-6 opacity-70">
+        <p className="text-pixel-sm text-pink-400 text-center mt-6 opacity-70">
           {quote.author}
         </p>
       </div>

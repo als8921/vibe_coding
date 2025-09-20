@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, IBM_Plex_Sans_KR } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  IBM_Plex_Sans_KR,
+  Press_Start_2P,
+} from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,6 +22,13 @@ const ibmPlexSansKR = IBM_Plex_Sans_KR({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-ibm-plex-sans-kr",
+});
+
+const pressStart2P = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-press-start-2p",
 });
 
 // DungGeunMo 폰트를 위한 커스텀 설정
@@ -48,9 +60,16 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=DungGeunMo&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="preload"
+          href="/fonts/neodgm.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${ibmPlexSansKR.variable} ${dungGeunMo.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${ibmPlexSansKR.variable} ${pressStart2P.variable} ${dungGeunMo.variable} antialiased`}
       >
         {children}
       </body>

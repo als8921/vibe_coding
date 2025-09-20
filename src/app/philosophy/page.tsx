@@ -87,21 +87,21 @@ export default function PhilosophyPage() {
             />
           </div>
           <div className="mb-12">
-            <p className="text-xl text-gray-700 opacity-80">
+            <p className="text-pixel-lg text-gray-700 opacity-80">
               외로운 당신을 위한 특별한 위로
             </p>
           </div>
           <div className="mb-10">
             <button
               onClick={handleStart}
-              className="bg-gradient-to-r from-pink-400 to-cyan-400 text-white px-8 py-4 rounded-2xl text-xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-4 mx-auto"
+              className="bg-gradient-to-r from-pink-400 to-cyan-400 text-white px-8 py-4 rounded-2xl text-pixel-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-4 mx-auto"
             >
               <span>시작하기</span>
               <span>→</span>
             </button>
           </div>
           <div>
-            <p className="text-lg text-gray-700 opacity-70">
+            <p className="text-pixel-sm text-gray-700 opacity-70">
               버튼을 눌러서 위로의 명언을 받아보세요
             </p>
           </div>
