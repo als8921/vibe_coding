@@ -7,30 +7,34 @@ import IdeaCard from "./IdeaCard";
 interface BookViewerProps {
   ideas: Idea[];
   onClose: () => void;
+  onDeleteIdea: (ideaId: string) => void;
 }
 
-const BookViewer: React.FC<BookViewerProps> = ({ ideas, onClose }) => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const ideasPerPage = 3;
+const BookViewer: React.FC<BookViewerProps> = ({
+  ideas,
+  onClose,
+  onDeleteIdea,
+}) => {
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [ideaToDelete, setIdeaToDelete] = useState<Idea | null>(null);
 
-  const totalPages = Math.ceil(ideas.length / ideasPerPage);
-  const currentIdeas = ideas.slice(
-    currentPage * ideasPerPage,
-    (currentPage + 1) * ideasPerPage
-  );
+  const handleDeleteClick = (idea: Idea) => {
+    setIdeaToDelete(idea);
+    setShowDeleteConfirm(true);
+  };
 
-  const goToNextPage = () => {
-    if (currentPage < totalPages - 1) {
-      setCurrentPage(currentPage + 1);
+  const handleConfirmDelete = () => {
+    if (ideaToDelete) {
+      onDeleteIdea(ideaToDelete.id);
+      setIdeaToDelete(null);
+      setShowDeleteConfirm(false);
     }
   };
 
-  const goToPrevPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
+  const handleCancelDelete = () => {
+    setIdeaToDelete(null);
+    setShowDeleteConfirm(false);
   };
-
   if (ideas.length === 0) {
     return (
       <div className="max-w-4xl mx-auto">
@@ -81,57 +85,47 @@ const BookViewer: React.FC<BookViewerProps> = ({ ideas, onClose }) => {
 
       {/* 책 내용 */}
       <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {currentIdeas.map((idea) => (
-            <IdeaCard key={idea.id} idea={idea} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-h-[70vh] overflow-y-auto scrollbar-hide">
+          {ideas.map((idea) => (
+            <IdeaCard
+              key={idea.id}
+              idea={idea}
+              onDelete={() => handleDeleteClick(idea)}
+            />
           ))}
         </div>
-
-        {/* 페이지네이션 */}
-        {totalPages > 1 && (
-          <div className="flex items-center justify-center space-x-4 mt-8">
-            <button
-              onClick={goToPrevPage}
-              disabled={currentPage === 0}
-              className={`px-4 py-2 rounded-xl text-pixel-sm font-bold transition-all duration-200 ${
-                currentPage === 0
-                  ? "bg-gray-200 dark:bg-gray-600 text-gray-400 dark:text-gray-500 cursor-not-allowed"
-                  : "bg-purple-500 text-white hover:bg-purple-600 hover:scale-105"
-              }`}
-            >
-              ← 이전
-            </button>
-
-            <div className="flex items-center space-x-2">
-              {Array.from({ length: totalPages }, (_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentPage(i)}
-                  className={`w-8 h-8 rounded-lg text-pixel-sm font-bold transition-all duration-200 ${
-                    i === currentPage
-                      ? "bg-purple-500 text-white"
-                      : "bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300 hover:bg-purple-300 dark:hover:bg-purple-700"
-                  }`}
-                >
-                  {i + 1}
-                </button>
-              ))}
-            </div>
-
-            <button
-              onClick={goToNextPage}
-              disabled={currentPage === totalPages - 1}
-              className={`px-4 py-2 rounded-xl text-pixel-sm font-bold transition-all duration-200 ${
-                currentPage === totalPages - 1
-                  ? "bg-gray-200 dark:bg-gray-600 text-gray-400 dark:text-gray-500 cursor-not-allowed"
-                  : "bg-purple-500 text-white hover:bg-purple-600 hover:scale-105"
-              }`}
-            >
-              다음 →
-            </button>
-          </div>
-        )}
       </div>
+
+      {/* 삭제 확인 모달 */}
+      {showDeleteConfirm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl max-w-md mx-4">
+            <div className="text-center">
+              <div className="text-4xl mb-4">⚠️</div>
+              <h3 className="text-pixel-lg font-bold text-gray-800 dark:text-white mb-2">
+                아이디어를 삭제하시겠어요?
+              </h3>
+              <p className="text-pixel-sm text-gray-600 dark:text-gray-300 mb-6">
+                이 작업은 되돌릴 수 없어요.
+              </p>
+              <div className="flex space-x-3">
+                <button
+                  onClick={handleCancelDelete}
+                  className="flex-1 px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-xl text-pixel-sm font-bold hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors duration-200"
+                >
+                  취소
+                </button>
+                <button
+                  onClick={handleConfirmDelete}
+                  className="flex-1 px-4 py-2 bg-red-500 text-white rounded-xl text-pixel-sm font-bold hover:bg-red-600 transition-colors duration-200"
+                >
+                  삭제
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

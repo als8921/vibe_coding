@@ -74,6 +74,12 @@ export default function DreamSpacePage() {
     setCurrentTheme(theme);
   };
 
+  const handleDeleteIdea = (ideaId: string) => {
+    const updatedIdeas = ideas.filter((idea) => idea.id !== ideaId);
+    setIdeas(updatedIdeas);
+    localStorage.setItem("dream-space-ideas", JSON.stringify(updatedIdeas));
+  };
+
   if (!isClient) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
@@ -99,7 +105,11 @@ export default function DreamSpacePage() {
 
       <main className="container mx-auto px-4 py-8">
         {showBookViewer ? (
-          <BookViewer ideas={ideas} onClose={() => setShowBookViewer(false)} />
+          <BookViewer
+            ideas={ideas}
+            onClose={() => setShowBookViewer(false)}
+            onDeleteIdea={handleDeleteIdea}
+          />
         ) : (
           <div className="max-w-4xl mx-auto">
             <ThemeDisplay theme={currentTheme} />

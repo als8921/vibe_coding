@@ -5,9 +5,14 @@ import { Idea } from "../types";
 
 interface IdeaCardProps {
   idea: Idea;
+  onDelete: () => void;
 }
 
-const IdeaCard: React.FC<IdeaCardProps> = ({ idea }) => {
+const IdeaCard: React.FC<IdeaCardProps> = ({ idea, onDelete }) => {
+  const handleDeleteClick = () => {
+    onDelete();
+  };
+
   const formatDate = (date: Date) => {
     return new Intl.DateTimeFormat("ko-KR", {
       year: "numeric",
@@ -103,17 +108,26 @@ const IdeaCard: React.FC<IdeaCardProps> = ({ idea }) => {
         <div className="text-pixel-xs text-gray-500 dark:text-gray-400">
           ID: {idea.id.slice(-6)}
         </div>
-        <div className="flex space-x-1">
-          {idea.mood === "희망" && <span className="text-sm">✨</span>}
-          {idea.mood === "창작" && <span className="text-sm">🎨</span>}
-          {idea.mood === "신비" && <span className="text-sm">🔮</span>}
-          {idea.mood === "평온" && <span className="text-sm">🍃</span>}
-          {idea.mood === "열정" && <span className="text-sm">🔥</span>}
-          {idea.mood === "우주" && <span className="text-sm">🌌</span>}
-          {idea.mood === "로맨틱" && <span className="text-sm">💕</span>}
-          {idea.mood === "모험" && <span className="text-sm">🗺️</span>}
-          {idea.mood === "차분" && <span className="text-sm">☁️</span>}
-          {idea.mood === "환상" && <span className="text-sm">🦄</span>}
+        <div className="flex items-center space-x-2">
+          <div className="flex space-x-1">
+            {idea.mood === "희망" && <span className="text-sm">✨</span>}
+            {idea.mood === "창작" && <span className="text-sm">🎨</span>}
+            {idea.mood === "신비" && <span className="text-sm">🔮</span>}
+            {idea.mood === "평온" && <span className="text-sm">🍃</span>}
+            {idea.mood === "열정" && <span className="text-sm">🔥</span>}
+            {idea.mood === "우주" && <span className="text-sm">🌌</span>}
+            {idea.mood === "로맨틱" && <span className="text-sm">💕</span>}
+            {idea.mood === "모험" && <span className="text-sm">🗺️</span>}
+            {idea.mood === "차분" && <span className="text-sm">☁️</span>}
+            {idea.mood === "환상" && <span className="text-sm">🦄</span>}
+          </div>
+          <button
+            onClick={handleDeleteClick}
+            className="text-red-500 hover:text-red-700 transition-colors duration-200 p-1"
+            title="아이디어 삭제"
+          >
+            🗑️
+          </button>
         </div>
       </div>
     </div>
