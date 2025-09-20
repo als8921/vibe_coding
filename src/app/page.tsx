@@ -98,6 +98,45 @@ export default function Home() {
             </div>
           </div>
 
+          {/* 서비스 섹션 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {/* 철학 페이지 */}
+            <a href="/philosophy" className="group">
+              <div className="bg-gradient-to-br from-pink-100 to-cyan-100 dark:from-pink-900/30 dark:to-cyan-900/30 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  💭
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  개똥철학자
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  외로운 당신을 위한 특별한 위로
+                </p>
+                <div className="text-pink-500 font-bold group-hover:text-pink-600 transition-colors duration-200">
+                  명언 받기 →
+                </div>
+              </div>
+            </a>
+
+            {/* 망상 공간 */}
+            <a href="/dream-space" className="group">
+              <div className="bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  🌙
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  최민성의 망상 공간
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  꿈과 아이디어가 살아 숨쉬는 곳
+                </p>
+                <div className="text-purple-500 font-bold group-hover:text-purple-600 transition-colors duration-200">
+                  아이디어 기록하기 →
+                </div>
+              </div>
+            </a>
+          </div>
+
           {/* 하단 메시지 */}
           <div className="text-center">
             <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-2xl p-8">
