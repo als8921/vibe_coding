@@ -1,24 +1,6 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans_KR } from "next/font/google";
-import "./globals.css";
-
-const ibmPlexSansKR = IBM_Plex_Sans_KR({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-ibm-plex-sans-kr",
-});
-
-// DungGeunMo 폰트를 위한 커스텀 설정
-const dungGeunMo = {
-  className: "dunggeunmo",
-  variable: "--font-dunggeunmo",
-};
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-  ),
   title: "개똥철학 - 위로의 명언",
   description:
     "외로운 당신을 위한 특별한 위로 메시지. 레트로 픽셀 스타일의 개똥철학 사이트에서 랜덤 명언을 받아보세요!",
@@ -76,32 +58,5 @@ export default function PhilosophyLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html
-      lang="ko"
-      className={`${ibmPlexSansKR.variable} ${dungGeunMo.variable}`}
-    >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=DungGeunMo&display=swap"
-          rel="stylesheet"
-        />
-        <meta name="theme-color" content="#ff6b6b" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="개똥철학" />
-      </head>
-      <body
-        className={`${ibmPlexSansKR.className} ${dungGeunMo.className} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }
