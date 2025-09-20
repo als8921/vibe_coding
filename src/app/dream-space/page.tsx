@@ -8,6 +8,7 @@ import {
   BookViewer,
   ThemeSelector,
   ParticleBackground,
+  DreamSpaceFooter,
 } from "@/features/dream-space";
 import { THEMES } from "@/features/dream-space/data/themes";
 
@@ -90,7 +91,7 @@ export default function DreamSpacePage() {
 
   return (
     <div
-      className="min-h-screen transition-all duration-1000"
+      className="min-h-screen flex flex-col transition-all duration-1000"
       style={{
         background:
           currentTheme?.backgroundGradient ||
@@ -103,7 +104,7 @@ export default function DreamSpacePage() {
         onToggleBookViewer={() => setShowBookViewer(!showBookViewer)}
       />
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 flex-1">
         {showBookViewer ? (
           <BookViewer
             ideas={ideas}
@@ -121,6 +122,8 @@ export default function DreamSpacePage() {
           </div>
         )}
       </main>
+
+      <DreamSpaceFooter />
 
       {/* 파티클 배경 */}
       <ParticleBackground theme={currentTheme} />
