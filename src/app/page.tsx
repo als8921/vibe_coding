@@ -99,7 +99,7 @@ export default function Home() {
           </div>
 
           {/* 서비스 섹션 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {/* 철학 페이지 */}
             <a href="/philosophy" className="group">
               <div className="bg-gradient-to-br from-pink-100 to-cyan-100 dark:from-pink-900/30 dark:to-cyan-900/30 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -132,6 +132,24 @@ export default function Home() {
                 </p>
                 <div className="text-purple-500 font-bold group-hover:text-purple-600 transition-colors duration-200">
                   아이디어 기록하기 →
+                </div>
+              </div>
+            </a>
+
+            {/* 오늘의 컬러 */}
+            <a href="/daily-color" className="group">
+              <div className="bg-gradient-to-br from-rose-100 to-pink-100 dark:from-rose-900/30 dark:to-pink-900/30 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  🌈
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  오늘의 컬러
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  사주에 따른 행운의 컬러 추천
+                </p>
+                <div className="text-rose-500 font-bold group-hover:text-rose-600 transition-colors duration-200">
+                  컬러 찾기 →
                 </div>
               </div>
             </a>
