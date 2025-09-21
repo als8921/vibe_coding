@@ -171,6 +171,24 @@ export default function Home() {
                 </div>
               </div>
             </a>
+
+            {/* 버블 계산기 */}
+            <a href="/bubble-calculator" className="group">
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-800/50 dark:to-gray-900/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-700">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  📊
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  버블 계산기
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  주식시장 버블 상태 분석 및 투자 위험도 평가
+                </p>
+                <div className="text-cyan-400 font-bold group-hover:text-cyan-300 transition-colors duration-200">
+                  시장 분석하기 →
+                </div>
+              </div>
+            </a>
           </div>
 
           {/* 하단 메시지 */}
