@@ -2,7 +2,6 @@
 
 import React from "react";
 import {
-  LineChart,
   Line,
   XAxis,
   YAxis,
@@ -73,7 +72,22 @@ export const LeverageRatioChart: React.FC<LeverageRatioChartProps> = ({
     return "text-green-400";
   };
 
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  interface TooltipPayload {
+    payload: {
+      name: string;
+      ratio: number;
+      status: string;
+      outcome: string;
+    };
+  }
+
+  const CustomTooltip = ({
+    active,
+    payload,
+  }: {
+    active?: boolean;
+    payload?: TooltipPayload[];
+  }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (

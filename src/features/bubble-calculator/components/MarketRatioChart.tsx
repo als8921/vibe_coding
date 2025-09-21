@@ -4,7 +4,6 @@ import React from "react";
 import {
   ComposedChart,
   Bar,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -66,7 +65,23 @@ export const MarketRatioChart: React.FC<MarketRatioChartProps> = ({
     },
   ];
 
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  interface TooltipPayload {
+    payload: {
+      name: string;
+      m2Ratio: number;
+      gdpRatio: number;
+      bubble: boolean;
+      outcome: string;
+    };
+  }
+
+  const CustomTooltip = ({
+    active,
+    payload,
+  }: {
+    active?: boolean;
+    payload?: TooltipPayload[];
+  }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (

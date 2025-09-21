@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
 import {
   historicalBubblePeriods,
@@ -8,7 +8,7 @@ import { BubbleAnalysis } from "@/features/bubble-calculator/types";
 
 const ai = new GoogleGenAI({});
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   try {
     // 현재 시장 데이터 계산
     const marketCapToM2Ratio =

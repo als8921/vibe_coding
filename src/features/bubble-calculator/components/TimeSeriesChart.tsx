@@ -59,7 +59,23 @@ export const TimeSeriesChart: React.FC<TimeSeriesChartProps> = ({
     },
   ];
 
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  interface TooltipPayload {
+    payload: {
+      m2Ratio: number;
+      gdpRatio: number;
+      leverage: number;
+    };
+  }
+
+  const CustomTooltip = ({
+    active,
+    payload,
+    label,
+  }: {
+    active?: boolean;
+    payload?: TooltipPayload[];
+    label?: string;
+  }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       const isCurrent = label === "2025";

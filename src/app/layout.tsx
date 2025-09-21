@@ -31,7 +31,8 @@ const pressStart2P = Press_Start_2P({
   variable: "--font-press-start-2p",
 });
 
-// DungGeunMo 폰트를 위한 커스텀 설정
+// DungGeunMo 폰트를 위한 커스텀 설정 - _document.js에서 로드되지 않으므로 경고 발생
+// eslint-disable-next-line @next/next/no-page-custom-font
 const dungGeunMo = {
   className: "dunggeunmo",
   variable: "--font-dunggeunmo",
@@ -56,6 +57,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin=""
         />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=DungGeunMo&display=swap"
           rel="stylesheet"
