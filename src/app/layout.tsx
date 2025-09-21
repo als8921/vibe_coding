@@ -39,7 +39,7 @@ const dungGeunMo = {
 };
 
 export const metadata: Metadata = {
-  title: "Vive Coding",
+  title: "Vibe Coding",
   description: "멋쟁이사자처럼 바이브 코딩 부스",
 };
 
