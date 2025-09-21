@@ -171,6 +171,24 @@ export default function Home() {
                 </div>
               </div>
             </a>
+
+            {/* 식물 추천 */}
+            <a href="/plant-recommendation" className="group">
+              <div className="bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  🌿
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  나만의 식물 추천
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  집과 어울리는 완벽한 식물 찾기
+                </p>
+                <div className="text-green-500 font-bold group-hover:text-green-600 transition-colors duration-200">
+                  식물 찾기 →
+                </div>
+              </div>
+            </a>
           </div>
 
           {/* 하단 메시지 */}
