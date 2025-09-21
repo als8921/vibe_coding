@@ -189,6 +189,24 @@ export default function Home() {
                 </div>
               </div>
             </a>
+
+            {/* 재미자판기 */}
+            <a href="/fun-machine" className="group">
+              <div className="bg-gradient-to-br from-yellow-100 to-orange-100 dark:from-yellow-900/30 dark:to-orange-900/30 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  🎰
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  재미자판기
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  온갖 액티비티와 음식을 랜덤으로 추천
+                </p>
+                <div className="text-yellow-600 font-bold group-hover:text-yellow-700 transition-colors duration-200">
+                  자판기 돌리기 →
+                </div>
+              </div>
+            </a>
           </div>
 
           {/* 하단 메시지 */}
