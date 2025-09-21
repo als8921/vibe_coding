@@ -218,6 +218,181 @@ body {
   }
 }
 
+/* 파스텔 컬러 팔레트 */
+.lavender-50 {
+  background-color: #faf7ff;
+}
+.lavender-100 {
+  background-color: #f3edff;
+}
+.lavender-200 {
+  background-color: #e6d9ff;
+}
+.lavender-300 {
+  background-color: #d1b8ff;
+}
+.lavender-400 {
+  background-color: #b894ff;
+}
+.lavender-500 {
+  background-color: #9f70ff;
+}
+.lavender-600 {
+  background-color: #8b47ff;
+}
+.lavender-700 {
+  background-color: #7c3aed;
+}
+.lavender-800 {
+  background-color: #6d28d9;
+}
+.lavender-900 {
+  background-color: #5b21b6;
+}
+
+.mint-50 {
+  background-color: #f0fdf9;
+}
+.mint-100 {
+  background-color: #ccfbf1;
+}
+.mint-200 {
+  background-color: #99f6e4;
+}
+.mint-300 {
+  background-color: #5eead4;
+}
+.mint-400 {
+  background-color: #2dd4bf;
+}
+.mint-500 {
+  background-color: #14b8a6;
+}
+.mint-600 {
+  background-color: #0d9488;
+}
+.mint-700 {
+  background-color: #0f766e;
+}
+.mint-800 {
+  background-color: #115e59;
+}
+.mint-900 {
+  background-color: #134e4a;
+}
+
+.peach-50 {
+  background-color: #fef7f0;
+}
+.peach-100 {
+  background-color: #fdeee0;
+}
+.peach-200 {
+  background-color: #fad9bc;
+}
+.peach-300 {
+  background-color: #f7be8c;
+}
+.peach-400 {
+  background-color: #f39c5c;
+}
+.peach-500 {
+  background-color: #f0772d;
+}
+.peach-600 {
+  background-color: #e85d1c;
+}
+.peach-700 {
+  background-color: #d94a1a;
+}
+.peach-800 {
+  background-color: #c73d1a;
+}
+.peach-900 {
+  background-color: #b5351a;
+}
+
+/* 파스텔 텍스트 컬러 */
+.text-lavender-400 {
+  color: #b894ff;
+}
+.text-lavender-500 {
+  color: #9f70ff;
+}
+.text-lavender-600 {
+  color: #8b47ff;
+}
+.text-lavender-700 {
+  color: #7c3aed;
+}
+
+.text-mint-400 {
+  color: #2dd4bf;
+}
+.text-mint-500 {
+  color: #14b8a6;
+}
+.text-mint-600 {
+  color: #0d9488;
+}
+.text-mint-700 {
+  color: #0f766e;
+}
+
+.text-peach-400 {
+  color: #f39c5c;
+}
+.text-peach-500 {
+  color: #f0772d;
+}
+.text-peach-600 {
+  color: #e85d1c;
+}
+.text-peach-700 {
+  color: #d94a1a;
+}
+
+/* 파스텔 보더 컬러 */
+.border-lavender-200 {
+  border-color: #e6d9ff;
+}
+.border-lavender-300 {
+  border-color: #d1b8ff;
+}
+.border-lavender-400 {
+  border-color: #b894ff;
+}
+
+.border-mint-200 {
+  border-color: #99f6e4;
+}
+.border-mint-300 {
+  border-color: #5eead4;
+}
+.border-mint-400 {
+  border-color: #2dd4bf;
+}
+
+.border-peach-200 {
+  border-color: #fad9bc;
+}
+.border-peach-300 {
+  border-color: #f7be8c;
+}
+.border-peach-400 {
+  border-color: #f39c5c;
+}
+
+.border-pink-200 {
+  border-color: #fce7f3;
+}
+.border-pink-300 {
+  border-color: #fbcfe8;
+}
+.border-pink-400 {
+  border-color: #f9a8d4;
+}
+
 /* 스크롤바 숨기기 */
 .scrollbar-hide {
   -ms-overflow-style: none; /* Internet Explorer 10+ */

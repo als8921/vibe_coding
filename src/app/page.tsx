@@ -153,6 +153,24 @@ export default function Home() {
                 </div>
               </div>
             </a>
+
+            {/* 나만의 음악 추천 */}
+            <a href="/music-recommendation" className="group">
+              <div className="bg-gradient-to-br from-lavender-100 to-mint-100 dark:from-lavender-900/30 dark:to-mint-900/30 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  🎵
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                  나만의 음악 추천
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  상황과 기분에 맞는 맞춤형 음악 추천
+                </p>
+                <div className="text-lavender-500 font-bold group-hover:text-lavender-600 transition-colors duration-200">
+                  음악 찾기 →
+                </div>
+              </div>
+            </a>
           </div>
 
           {/* 하단 메시지 */}
