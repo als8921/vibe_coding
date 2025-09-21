@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { PixelCharacter, ConfusionState, TouchEvent } from "../types";
+import { PixelCharacter } from "../types";
 import { PixelCharacter as PixelCharacterComponent } from "./PixelCharacter";
 
 interface ConfusionCanvasProps {
@@ -10,7 +10,6 @@ interface ConfusionCanvasProps {
 }
 
 export const ConfusionCanvas = ({ width, height }: ConfusionCanvasProps) => {
-  const canvasRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | undefined>(undefined);
   const [characters, setCharacters] = useState<PixelCharacter[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -20,7 +19,6 @@ export const ConfusionCanvas = ({ width, height }: ConfusionCanvasProps) => {
   // 물리 상수 (더 정신없게!)
   const GRAVITY = 0.15; // 중력 증가
   const FRICTION = 0.95; // 마찰 감소 (더 오래 날아다님)
-  const BOUNCE = 0.9; // 바운스 증가
   const FORCE_MULTIPLIER = 25; // 힘 증가
 
   // 캐릭터 초기화
@@ -305,7 +303,7 @@ export const ConfusionCanvas = ({ width, height }: ConfusionCanvasProps) => {
         return updatedCharacters;
       });
     },
-    [spawnSmallCharacters]
+    [spawnSmallCharacters, height, width]
   );
 
   // 애니메이션 루프

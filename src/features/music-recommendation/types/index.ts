@@ -3,6 +3,9 @@ export interface MusicPreference {
   artists: string[];
   timeOfDay: string;
   location: string;
+  weather?: string;
+  previousTaste?: string;
+  mbti?: string;
 }
 
 export interface MusicRecommendation {
@@ -18,7 +21,15 @@ export interface RecommendationResult {
   summary: string;
 }
 
-export type SelectionStep = "mood" | "artists" | "time" | "location" | "result";
+export type SelectionStep =
+  | "mood"
+  | "artists"
+  | "time"
+  | "location"
+  | "weather"
+  | "previousTaste"
+  | "mbti"
+  | "result";
 
 export interface MusicRecommendationState {
   currentStep: SelectionStep;

@@ -1,9 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
-import {
-  MusicPreference,
-  RecommendationResult,
-} from "@/features/music-recommendation/types";
+import { MusicPreference } from "@/features/music-recommendation/types";
 
 const ai = new GoogleGenAI({});
 
@@ -31,6 +28,9 @@ export async function POST(request: NextRequest) {
 - 선호 아티스트/장르: ${preferences.artists.join(", ")}
 - 시간대: ${preferences.timeOfDay}
 - 장소: ${preferences.location}
+- 날씨: ${preferences.weather || "미선택"}
+- 기존 취향: ${preferences.previousTaste || "미선택"}
+- MBTI: ${preferences.mbti || "미선택"}
 
 다음 JSON 형식으로 응답해주세요:
 {
@@ -90,6 +90,15 @@ export async function POST(request: NextRequest) {
 3. 아티스트명이 정확한가?
 4. 장르가 올바른가?
 5. 위 예시에 나온 곡들과 유사한 실제 히트곡인가?
+
+**추천 시 고려사항:**
+- 날씨 정보를 활용해 분위기에 맞는 곡 추천 (예: 비 오는 날에는 감성적인 곡)
+- 기존 취향을 바탕으로 유사한 스타일의 곡 추천
+- MBTI 성격 유형에 맞는 음악 스타일 고려:
+  * E(외향형): 에너지 넘치는 곡, I(내향형): 차분하고 깊이 있는 곡
+  * S(감각형): 현실적이고 구체적인 가사, N(직관형): 추상적이고 철학적인 가사
+  * T(사고형): 논리적이고 분석적인 곡, F(감정형): 감성적이고 공감적인 곡
+  * J(판단형): 체계적이고 완성도 높은 곡, P(인식형): 자유롭고 즉흥적인 곡
 `;
 
     const response = await ai.models.generateContent({
