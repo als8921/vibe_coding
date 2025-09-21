@@ -39,8 +39,8 @@ const dungGeunMo = {
 };
 
 export const metadata: Metadata = {
-  title: "성격 분석 도구 모음",
-  description: "다양한 심리 테스트로 당신의 성격을 알아보세요!",
+  title: "Vive Coding",
+  description: "멋쟁이사자처럼 바이브 코딩 부스",
 };
 
 export default function RootLayout({
