@@ -13,10 +13,10 @@ export default function Home() {
         </div>
 
         {/* 서비스 목록 */}
-        <div className="space-y-1 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-1 mb-24">
           <a
             href="/philosophy"
-            className="group block py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
+            className="group block py-6 px-4 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -35,7 +35,7 @@ export default function Home() {
 
           <a
             href="/dream-space"
-            className="group block py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
+            className="group block py-6 px-4 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -54,7 +54,7 @@ export default function Home() {
 
           <a
             href="/daily-color"
-            className="group block py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
+            className="group block py-6 px-4 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -73,7 +73,7 @@ export default function Home() {
 
           <a
             href="/music-recommendation"
-            className="group block py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
+            className="group block py-6 px-4 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -92,7 +92,7 @@ export default function Home() {
 
           <a
             href="/bubble-calculator"
-            className="group block py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
+            className="group block py-6 px-4 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -111,7 +111,7 @@ export default function Home() {
 
           <a
             href="/fun-machine"
-            className="group block py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
+            className="group block py-6 px-4 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -130,7 +130,7 @@ export default function Home() {
 
           <a
             href="/plant-recommendation"
-            className="group block py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
+            className="group block py-6 px-4 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -149,7 +149,7 @@ export default function Home() {
 
           <a
             href="/mbti"
-            className="group block py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
+            className="group block py-6 px-4 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -168,7 +168,7 @@ export default function Home() {
 
           <a
             href="/confusion"
-            className="group block py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
+            className="group block py-6 px-4 border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -189,7 +189,7 @@ export default function Home() {
         {/* 하단 메시지 */}
         <div className="text-center">
           <p className="text-gray-500 font-light text-lg">
-            함께 성장하는 개발자 커뮤니티
+            멋쟁이사자처럼 바이브 코딩 부스
           </p>
         </div>
       </div>
