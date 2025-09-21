@@ -1,9 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
-import {
-  MusicPreference,
-  RecommendationResult,
-} from "@/features/music-recommendation/types";
+import { MusicPreference } from "@/features/music-recommendation/types";
 
 const ai = new GoogleGenAI({});
 

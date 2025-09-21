@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   Header,
   QuoteDisplay,
@@ -80,9 +81,11 @@ export default function PhilosophyPage() {
       <div className="fixed inset-0 bg-gradient-to-br from-pink-50 to-cyan-50 flex items-center justify-center z-50">
         <div className="text-center p-8 max-w-md w-full">
           <div className="mb-8">
-            <img
+            <Image
               src="/philosophy-icon.png"
               alt="개똥철학 로고"
+              width={128}
+              height={128}
               className="w-32 h-32 mx-auto rounded-2xl shadow-xl"
             />
           </div>

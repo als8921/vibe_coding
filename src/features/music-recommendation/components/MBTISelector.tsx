@@ -4,7 +4,7 @@ import React from "react";
 import { MBTI_OPTIONS } from "../data/additionalOptions";
 
 interface MBTISelectorProps {
-  selectedMBTI: string | null;
+  selectedMBTI: string | undefined;
   onMBTISelect: (mbtiId: string) => void;
 }
 

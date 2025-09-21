@@ -4,7 +4,7 @@ import React from "react";
 import { PREVIOUS_TASTE_OPTIONS } from "../data/additionalOptions";
 
 interface PreviousTasteSelectorProps {
-  selectedTaste: string | null;
+  selectedTaste: string | undefined;
   onTasteSelect: (tasteId: string) => void;
 }
 

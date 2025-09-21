@@ -13,7 +13,6 @@ import { RecommendationResult } from "./RecommendationResult";
 import {
   MusicRecommendationState,
   SelectionStep,
-  MusicPreference,
   RecommendationResult as ResultType,
 } from "../types";
 

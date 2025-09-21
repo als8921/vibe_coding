@@ -4,7 +4,7 @@ import React from "react";
 import { WEATHER_OPTIONS } from "../data/additionalOptions";
 
 interface WeatherSelectorProps {
-  selectedWeather: string | null;
+  selectedWeather: string | undefined;
   onWeatherSelect: (weatherId: string) => void;
 }
 
