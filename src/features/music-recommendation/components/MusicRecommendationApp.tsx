@@ -6,6 +6,9 @@ import { MoodSelector } from "./MoodSelector";
 import { ArtistSelector } from "./ArtistSelector";
 import { TimeSelector } from "./TimeSelector";
 import { LocationSelector } from "./LocationSelector";
+import { WeatherSelector } from "./WeatherSelector";
+import { PreviousTasteSelector } from "./PreviousTasteSelector";
+import { MBTISelector } from "./MBTISelector";
 import { RecommendationResult } from "./RecommendationResult";
 import {
   MusicRecommendationState,
@@ -22,6 +25,9 @@ export const MusicRecommendationApp: React.FC = () => {
       artists: [],
       timeOfDay: "",
       location: "",
+      weather: "",
+      previousTaste: "",
+      mbti: "",
     },
     recommendations: null,
     isLoading: false,
@@ -55,10 +61,34 @@ export const MusicRecommendationApp: React.FC = () => {
     }));
   };
 
-  const handleLocationSelect = async (locationId: string) => {
+  const handleLocationSelect = (locationId: string) => {
+    setState((prev) => ({
+      ...prev,
+      preferences: { ...prev.preferences, location: locationId },
+      currentStep: "weather" as SelectionStep,
+    }));
+  };
+
+  const handleWeatherSelect = (weatherId: string) => {
+    setState((prev) => ({
+      ...prev,
+      preferences: { ...prev.preferences, weather: weatherId },
+      currentStep: "previousTaste" as SelectionStep,
+    }));
+  };
+
+  const handlePreviousTasteSelect = (tasteId: string) => {
+    setState((prev) => ({
+      ...prev,
+      preferences: { ...prev.preferences, previousTaste: tasteId },
+      currentStep: "mbti" as SelectionStep,
+    }));
+  };
+
+  const handleMBTISelect = async (mbtiId: string) => {
     const updatedPreferences = {
       ...state.preferences,
-      location: locationId,
+      mbti: mbtiId,
     };
 
     setState((prev) => ({
@@ -113,6 +143,9 @@ export const MusicRecommendationApp: React.FC = () => {
         artists: [],
         timeOfDay: "",
         location: "",
+        weather: "",
+        previousTaste: "",
+        mbti: "",
       },
       recommendations: null,
       isLoading: false,
@@ -158,6 +191,27 @@ export const MusicRecommendationApp: React.FC = () => {
             onLocationSelect={handleLocationSelect}
           />
         );
+      case "weather":
+        return (
+          <WeatherSelector
+            selectedWeather={state.preferences.weather}
+            onWeatherSelect={handleWeatherSelect}
+          />
+        );
+      case "previousTaste":
+        return (
+          <PreviousTasteSelector
+            selectedTaste={state.preferences.previousTaste}
+            onTasteSelect={handlePreviousTasteSelect}
+          />
+        );
+      case "mbti":
+        return (
+          <MBTISelector
+            selectedMBTI={state.preferences.mbti}
+            onMBTISelect={handleMBTISelect}
+          />
+        );
       case "result":
         if (state.isLoading) {
           return (
@@ -184,13 +238,19 @@ export const MusicRecommendationApp: React.FC = () => {
   const getProgressPercentage = () => {
     switch (state.currentStep) {
       case "mood":
-        return 25;
+        return 15;
       case "artists":
-        return 50;
+        return 30;
       case "time":
-        return 75;
+        return 45;
       case "location":
-        return 90;
+        return 60;
+      case "weather":
+        return 75;
+      case "previousTaste":
+        return 85;
+      case "mbti":
+        return 95;
       case "result":
         return 100;
       default:
