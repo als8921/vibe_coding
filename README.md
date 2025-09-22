@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌟 Vibe Coding
 
-## Getting Started
+> **멋쟁이사자처럼 과학클럽 바이브 코딩 부스**  
+> _개발자들의 성장과 네트워킹을 위한 공간_
 
-First, run the development server:
+**📅 이벤트 정보**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **일시**: 2025년 9월 19일 ~ 9월 20일
+- **주최**: 멋쟁이사자처럼 과학클럽
+- **부스**: 바이브 코딩
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 서비스 소개
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. 🧠 개똥철학자
 
-## Learn More
+**"외로운 당신을 위한 특별한 위로"**
 
-To learn more about Next.js, take a look at the following resources:
+- **기능**: AI 기반 철학적 위로 메시지 제공
+- **특징**: 사용자의 상황에 맞는 개인화된 철학적 조언
+- **기술**: Google Gemini AI를 활용한 자연어 생성
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. 💭 최민성의 망상 공간
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**"꿈과 아이디어가 살아 숨쉬는 곳"**
 
-## Deploy on Vercel
+- **기능**: 아이디어 관리 및 꿈 공간 시각화
+- **특징**: 인터랙티브한 아이디어 카드와 테마별 분류
+- **기술**: React 상태 관리 및 애니메이션 효과
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. 🎨 오늘의 컬러
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**"사주에 따른 행운의 컬러 추천"**
+
+- **기능**: 생년월일과 선호도 기반 컬러 추천
+- **특징**: 의상, 액세서리, 전체운 등 종합적 컬러 가이드
+- **기술**: 사주 계산 알고리즘 + AI 컬러 분석
+
+### 4. 🎵 나만의 음악 추천
+
+**"상황과 기분에 맞는 맞춤형 음악 추천"**
+
+- **기능**: 기분, 장소, 시간대별 음악 추천
+- **특징**: MBTI, 날씨, 기존 취향을 고려한 개인화 추천
+- **기술**: 다중 조건 기반 AI 추천 시스템
+
+### 5. 📊 버블 계산기
+
+**"주식시장 버블 상태 분석 및 투자 위험도 평가"**
+
+- **기능**: 실시간 시장 데이터 기반 버블 분석
+- **특징**: 과거 버블 시기와의 비교 분석 및 투자 권고
+- **기술**: 금융 데이터 분석 + 차트 시각화 (Recharts)
+
+### 6. 🎰 재미자판기
+
+**"온갖 액티비티와 음식을 랜덤으로 추천"**
+
+- **기능**: 랜덤 액티비티 및 음식 추천
+- **특징**: 슬롯머신 UI로 재미있는 랜덤 경험
+- **기술**: 확률 기반 추천 알고리즘
+
+### 7. 🌱 나만의 식물 추천
+
+**"집과 어울리는 완벽한 식물 찾기"**
+
+- **기능**: 환경 조건별 맞춤 식물 추천
+- **특징**: 공간, 조명, 관리 시간, 예산을 고려한 실용적 추천
+- **기술**: 조건부 필터링 + AI 추천 시스템
+
+### 8. 🧭 MBTI 테스트
+
+**"당신의 성격 유형을 알아보세요"**
+
+- **기능**: 현실적 상황 기반 MBTI 성격 검사
+- **특징**: 16가지 성격 유형 분석 및 상세한 결과 제공
+- **기술**: 심리학 기반 알고리즘 + 결과 시각화
+
+### 9. 🌪️ 정신없음
+
+**"당신의 혼란스러운 순간들을 표현해보세요"**
+
+- **기능**: 혼란스러운 감정의 시각적 표현
+- **특징**: 인터랙티브 캔버스로 감정 표현
+- **기술**: HTML5 Canvas + 애니메이션 효과
+
+---
+
+## 🎯 주요 특징
+
+### 🤖 AI 기반 개인화
+
+- Google Gemini AI를 활용한 지능형 추천 시스템
+- 사용자 입력에 따른 실시간 맞춤형 응답
+- 자연어 처리 기반의 직관적인 상호작용
+
+### 📱 반응형 디자인
+
+- 모바일 우선 설계
+- Tailwind CSS를 활용한 일관된 디자인 시스템
+- 다양한 화면 크기에 최적화된 사용자 경험
+
+### ⚡ 성능 최적화
+
+- Next.js 15의 최신 기능 활용
+- Turbopack을 통한 빠른 개발 환경
+- 코드 분할 및 지연 로딩으로 최적화된 번들 크기
+
+### 🎨 인터랙티브 UI/UX
+
+- 직관적인 사용자 인터페이스
+- 부드러운 애니메이션과 전환 효과
+- 사용자 참여를 유도하는 인터랙티브 요소
+
+---
+
+## 👥 팀
+
+**멋쟁이사자처럼 과학클럽 바이브 코딩 부스 팀**
+
+- **개발**: Next.js, React, TypeScript
+- **AI**: Google Gemini AI
+- **디자인**: Tailwind CSS
+- **기획**: 사용자 중심 서비스 설계
+
+---
+
+- **이벤트**: 멋쟁이사자처럼 과학클럽
+- **부스**: 바이브 코딩
+- **기간**: 2025.09.19 ~ 2025.09.20
+
+---
+
+<div align="center">
+
+**🌟 멋쟁이사자처럼 과학클럽과 함께하는 바이브 코딩 부스 🌟**
+
+_개발자들의 성장과 네트워킹을 위한 특별한 공간_
+
+</div>
